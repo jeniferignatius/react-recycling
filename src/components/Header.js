@@ -6,7 +6,7 @@ function Header(){
     return (
         <header className="border-b p-3 flex justify-between items-center">
             <Link to='/' className="font-bold bg-green">
-                Recycling Center
+                Kieppu - Kierrätyskauppa
             </Link>
             <Navigation />
         </header>
