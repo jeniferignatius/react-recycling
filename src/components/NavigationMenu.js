@@ -6,7 +6,7 @@ function NavigationMenu(props){
     return (
         <div>
             <div className="font-bold py-3">
-                AppName
+                Recycling Center
             </div>
             <ul>
                 <li>
@@ -51,7 +51,7 @@ function NavigationMenu(props){
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                        Administraattori 
+                        Administrator 
                     </PrivateLink>
                 </li>
             </ul>
