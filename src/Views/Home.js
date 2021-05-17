@@ -1,51 +1,70 @@
-import React from 'react'
-import Loader from '../components/Loader'
-import ProductCard from '../components/ProductCard'
-import { useAxiosGet } from '../Hooks/HttpRequests'
+import '../App.css';
+import React, {Component} from 'react';
+import features from "./Features";
+import logoImg from "../img/logo1.jpg";
 
-function Home(){
-    // Create your own Mock API: https://mockapi.io/
-    const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products?page=1&limit=10`
-    let products = useAxiosGet(url)
+class Home extends Component {
+  constructor() {
+      super();
+      this.state = features;
+      this.showMore = this.showMore.bind(this);
+  }
 
-    let content = null
-
-    if(products.error){
-        content = <div>
-            <div className="bg-blue-300 mb-2 p-3">
-                If you see this error. Please remember to create your own <a href="https://mockapi.io/">mock API</a>.
-            </div>
-            <div className="bg-red-300 p-3">
-                There was an error please refresh or try again later.
-            </div>
-        </div>
-    }
-
-    if(products.loading){
-        content = <Loader></Loader>
-    }
-
-    if(products.data){
-        content = 
-        products.data.map((product) => 
-            <div key={product.id} className="flex-no-shrink w-full md:w-1/4 md:px-3">
-                <ProductCard 
-                    product={product}
-                />
-            </div>
-        )
-    }
-
-    return (
-        <div className="container mx-auto">
-            <h1 className="font-bold text-2xl mb-3">
-                Best Sellers
-            </h1>
-            <div className="md:flex flex-wrap md:-mx-3">
-                { content } 
-            </div>
-        </div>
+  showMore() {
+    this.state.itemsToShow === 3 ? (
+      this.setState({ itemsToShow: this.state.items.length, expanded: true })
+    ) : (
+      this.setState({ itemsToShow: 3, expanded: false })
     )
+  }
+
+  render() {
+    return (
+        <>
+        <div className="intro__wrapper">
+            <img className="intro__wrapper__image"
+                 src={logoImg}
+                 alt="store"/>
+            <div className="intro__text">
+                <h1 className="intro__wrapper__title">
+                Best store for recycling the products. Save our environment
+                </h1>
+                <p className="intro__wrapper__subtitle">
+                    Our store was rated as the best store in all
+                    unreal rating systems.
+                </p>
+            </div>
+        </div>
+        <div className="intro__items">
+            {this.state.items.slice(0, this.state.itemsToShow).map((item, index) => (
+            <div className="intro__feature">
+                <img className="intro__feature__image"
+                 src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/1024/star-icon.png"
+                 alt="star"/>
+            <div className="intro__feature__text">
+                <h1 className="intro__feature__title">
+                    {item.title}
+                </h1>
+                <p className="intro__feature__subtitle">
+                    {item.subtitle}
+                </p>
+            </div>
+            </div>
+            ))}
+        </div>
+        <p>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="button__show-more" onClick={this.showMore}>
+              {this.state.expanded ? (
+                <span>Show less</span>
+              ) : (
+                <span>Show more</span>
+              )}
+            </a>
+        </p>
+        </>
+    )
+  }
 }
 
-export default Home
+export default Home;
