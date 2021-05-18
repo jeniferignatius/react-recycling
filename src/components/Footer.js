@@ -10,8 +10,9 @@ function Footer() {
                     href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
                     rel="stylesheet" />
 
-                <p>&copy; Copyright {currentYear}</p>
+
                 <div className="text-center center-block">
+
                     <a href="https://www.facebook.com/"><i
                         id="social-fb"
                         className="fa fa-facebook-square fa-2x social" /></a>
@@ -23,6 +24,7 @@ function Footer() {
                         className="fa fa-google-plus-square fa-2x social" /></a>
                     <a href="mailto:#"><i id="social-em"
                         className="fa fa-envelope-square fa-2x social" /></a>
+                    <p className="copyright">&copy; Copyright {currentYear}</p>
                 </div>
             </div>
         </footer>

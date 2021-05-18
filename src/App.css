@@ -56,8 +56,16 @@ Footer styles start
 
 .footer__text{
   margin-left: 20px;
-  font-size: 10px;
 }
+
+.text-center {
+  background-color: #00917c;
+}
+.copyright {
+  font-size: 15px;
+  color: white;
+}
+
 
 .font-bold {
   color:#025955;

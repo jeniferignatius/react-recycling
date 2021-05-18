@@ -59,7 +59,7 @@ function Login(props) {
         />
         <Button onClick={postLogin}>Kirjaudu sisään</Button>
       </Form>
-      <Link to="/signup">Eikö sinulla ole vielä tiliä?</Link>
+      <Link to="/signup">Eikö sinulla ole vielä tiliä? Paina tästä linkistä.</Link>
         { isError &&<Error>The username or password provided were incorrect!</Error> }
     </Card>
   );
