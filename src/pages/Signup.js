@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import logoImg from "../img/omnia_logo.png";
+import logoImg from "../img/earth-logo.png";
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
 
 function Signup(props) {
@@ -49,32 +49,32 @@ function Signup(props) {
           onChange={e => {
             setEmail(e.target.value);
             }} 
-          placeholder="email"/>
+          placeholder="Sähköposti"/>
         <Input 
           type="text" 
           value={username}
           onChange={e => {
             setUsername(e.target.value);
             }} 
-          placeholder="username"/>  
+          placeholder="Käyttäjätunnus"/>  
         <Input 
           type="password" 
           value={password}
           onChange={e => {
             setPassword(e.target.value);
             }}
-          placeholder="password" />
+          placeholder="Salasana" />
         <Input 
           type="password" 
           value={password2}
           onChange={e => {
             setPassword2(e.target.value);
             }}
-          placeholder="password again" />
-        <Button onClick={postSignup}>Sign Up</Button>
+          placeholder="Salasana uudelleen" />
+        <Button onClick={postSignup}>Kirjaudu</Button>
       </Form>
-      <Link to="/login">Already have an account?</Link>
-      { isError && <Error>The username or password provided were incorrect!</Error> }
+      <Link to="/login">Onko sinulla jo käyttäjätunnus?</Link>
+      { isError && <Error>Antamasi salasana tai käyttäjätunnus olivat vääriä!</Error> }
     </Card>
   );
 }
