@@ -27,11 +27,10 @@ class Home extends Component {
                  alt="store"/>
             <div className="intro__text">
                 <h1 className="intro__wrapper__title">
-                Best store for recycling the products. Save our environment
+                Pelasta maailma!
                 </h1>
                 <p className="intro__wrapper__subtitle">
-                    Our store was rated as the best store in all
-                    unreal rating systems.
+                    Meidän kauttamme tavarasi saavat uuden kodin 
                 </p>
             </div>
         </div>
