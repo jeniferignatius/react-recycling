@@ -24,7 +24,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background: linear-gradient(to bottom, #6371c7, #5563c1);
+  background: linear-gradient(to bottom, #00917c, #025955);
   border-color: #3f4eae;
   border-radius: 3px;
   padding: 1rem;

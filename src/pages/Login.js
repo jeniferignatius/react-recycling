@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import logoImg from "../img/omnia_logo.png";
+import logoImg from "../img/earth-logo.png";
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
 import { useAuth } from "../context/auth";
 
@@ -47,7 +47,7 @@ function Login(props) {
           onChange={e => {
             setUsername(e.target.value);
           }}
-          placeholder="email"
+          placeholder="Sähköposti"
         />
         <Input
           type="password"
@@ -55,11 +55,11 @@ function Login(props) {
           onChange={e => {
             setPassword(e.target.value);
           }}
-          placeholder="password"
+          placeholder="Salasana"
         />
-        <Button onClick={postLogin}>Sign In</Button>
+        <Button onClick={postLogin}>Kirjaudu sisään</Button>
       </Form>
-      <Link to="/signup">Don't have an account?</Link>
+      <Link to="/signup">Eikö sinulla ole vielä tiliä? Paina tästä linkistä.</Link>
         { isError &&<Error>The username or password provided were incorrect!</Error> }
     </Card>
   );

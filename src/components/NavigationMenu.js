@@ -6,61 +6,52 @@ function NavigationMenu(props){
     return (
         <div>
             <div className="font-bold py-3">
-                Recycling Center
+                Kieppu
             </div>
             <ul>
                 <li>
                     <Link 
                         to="/" 
-                        className="text-blue-500 py-3 border-t border-b block"
+                        className="text-green-900 py-3 border-t border-b block"
                         onClick={props.closeMenu}
                     >
-                        Home
+                        Etusivu
                     </Link>
                 </li>
                 <li>
                     <Link 
-                        to="/product" 
-                        className="text-blue-500 py-3 border-b block"
+                        to="/react-liidimanageri/about" 
+                        className="text-green-900 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                     Product
-                    </Link>
-                </li>
-                <li>
-                    <Link 
-                        to="/about" 
-                        className="text-blue-500 py-3 border-b block"
-                        onClick={props.closeMenu}
-                    >
-                        About
+                        Tietoa meistä
                     </Link>
                 </li>
                 <li>
                     <PublicLink 
                         to="/login" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-green-900 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                        Login
+                        Kirjaudu sisään
                     </PublicLink>
                 </li>
                 <li>
                     <PublicLink 
                         to="/signup" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-green-900 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                        Signup 
+                        Rekisteröidy 
                     </PublicLink>
                 </li>
                 <li>
                     <PrivateLink 
                         to="/admin" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-green-900 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                        Administrator 
+                        Pääkäyttäjän sivu 
                     </PrivateLink>
                 </li>
             </ul>
