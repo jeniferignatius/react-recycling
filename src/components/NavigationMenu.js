@@ -20,7 +20,16 @@ function NavigationMenu(props){
                 </li>
                 <li>
                     <Link 
-                        to="/react-liidimanageri/about" 
+                        to="/product" 
+                        className="text-blue-500 py-3 border-b block"
+                        onClick={props.closeMenu}
+                    >
+                     Product
+                    </Link>
+                </li>
+                <li>
+                    <Link 
+                        to="/about" 
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >

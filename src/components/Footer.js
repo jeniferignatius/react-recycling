@@ -23,10 +23,6 @@ function Footer(){
                         <a href="mailto:#"><i id="social-em"
     className="fa fa-envelope-square fa-2x social"/></a>
                     </div>
-                <p>Recycling center</p>
-                <p>Kaskilaaksontie 7</p>
-                <p>Espoo, 02360</p>
-                <p>Tel : 12345667</p>
             </div>
         </footer>
     )
