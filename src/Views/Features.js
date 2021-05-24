@@ -2,28 +2,28 @@ const features = {
     items: [
         {
             id: 1,
-            title: "Best prices",
-            subtitle: "We research market and pick most relative prices for our products."
+            title: "Parhaat hinnat",
+            subtitle: "Meidän sivustoltamme löydät edullisimmat tuotteet."
         },
         {
             id: 2,
-            title: "Best quality",
-            subtitle: "We value our customers and sell only quality products."
+            title: "Paras laatu",
+            subtitle: "Käymme laatutarkistuksen läpi kaikista tuotteista, joita sivuillamme myydään."
         },
         {
             id: 3,
-            title: "Best clients",
-            subtitle: "Our customers love us and spend one hour in average in our store."
+            title: "Parhaat asiakkaat",
+            subtitle: "Rekisteröitymällä liityt parhaisiin asiakkaisiimme ja saat suoran yhteyden tavaran myyjiin."
         },
         {
             id: 4,
-            title: "Special offers",
-            subtitle: "Check out our social media pages to learn more!"
+            title: "Erikoistarjouksia",
+            subtitle: "Rekisteröitymällä saat tietoa erikoistarjouksistamme!"
         },
         {
             id: 5,
-            title: "Random giveaways",
-            subtitle: "You have a chance to win a cool gaming stuff taking part in our regular giveaways!"
+            title: "Ilmaisia tuotelahjoja",
+            subtitle: "Voit voittaa kauttamme valitsemiasi tuotelahjoja - tottakai kierrätyksen hengessä!"
         }
     ],
         itemsToShow: 3,
