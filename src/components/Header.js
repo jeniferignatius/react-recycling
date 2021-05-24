@@ -9,6 +9,7 @@ function Header(){
                 Kieppu - Kierrätyskauppa
             </Link>
             <Navigation />
+            
         </header>
     )
 }

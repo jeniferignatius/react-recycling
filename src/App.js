@@ -11,6 +11,7 @@ import Unauthorized from './components/Unauthorized';
 import Home from './Views/Home';
 import About from './Views/About';
 import Product from './Views/Product';
+import Routes from './routes'
 
 
 function App(props) {
@@ -29,11 +30,14 @@ function App(props) {
       <div className="relative pb-10 min-h-screen">
       <Router>
         <Header />
+        <Product />
+        <Routes />
         <div className="p-3">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/react-liidimanageri/about" component={About} />
-            <Route path="/products/:id" component={Product} />
+            <Route path="/about" component={About} />
+            <Route path="/product" component={Product} />
+            
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path='/unauthorized' component={Unauthorized} />  
