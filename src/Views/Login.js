@@ -1,29 +1,68 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import logoImg from "../img/earth-logo.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
+import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
+import { useAuth } from "../context/auth";
 
 function Login(props){
   console.log(props)
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(watch("example")); // watch input value by passing the name of it
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [ isError, setIsError] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const {setAuthTokens} = useAuth();
+  var referer = '/';
+  if (props && props.location.state) {
+    referer = props.location.state.referer || '/';
+  }
+
+  function postLogin () {
+    axios.post("http://localhost:5000/auth/signin", {
+      'email':username,
+      password
+  }).(result => {
+    if (result.status === 200 && result.data === "OK") {
+      setAuthTokens(result.data);
+      setLoggedIn(true);
+    } else {
+      setIsError(true);
+    }).catch(e => {
+      setIsError(true);
+    });
+  }
+
+  if (isLoggedIn) {
+    return <Redirect to {referer} />;
+  }
 
   return (
-    /*<form onSubmit={handleSubmit(onSubmit)}>*/
-    <form onSubmit={props.handleLogin}>
-      <div className="form-group">
-      <label>Sähköpostiosoite</label>
-      <input className="form-control" type="text" placeholder="Email" name="Email" ref={register({required: true, pattern: /^\S+@\S+$/i})} />
-      </div>
-      <div className="form-group">
-      <label>Salasana</label>
-      <input className="form-control" type="password" placeholder="Salasana" name="Password" ref={register({required: true, minLength: 6, maxLength: 12})} />
-      </div>
-      <button href="https://alligator.io">Lähetä</button>
-    </form>
+    <Card>
+      <Logo src={logoImg} />
+      <Form>
+        <Input
+          type="email"
+          value={username}
+          onChange={e => {
+            setUsername(e.target.value);
+          }}
+          placeholder="Sähköposti"
+        />
+        <Input
+          type="password"
+          value={password}
+          onChange={e => {
+            setPassword(e.target.value);
+          }}
+          placeholder="Salasana"
+        />
+        <Button onClick={postLogin}>Kirjaudu sisään</Button>
+      </Form>
+      <Link to="/signup">Eikö sinulla ole vielä tiliä? Luo tili tästä.</Link>
+        { isError &&<Error>Käyttäjätunnus tai salasana on väärä!</Error> }
+    </Card>
   );
 }
-
 export default Login;
