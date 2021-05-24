@@ -25,6 +25,7 @@ function Footer() {
                     <a href="mailto:#"><i id="social-em"
                         className="fa fa-envelope-square fa-2x social" /></a>
                     <p className="copyright">&copy; Copyright {currentYear}</p>
+                    <p className="copyright">This is a fictitious company. Any resemblance to real products or services is purely coincidental.</p>
                 </div>
             </div>
         </footer>
