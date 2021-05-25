@@ -71,7 +71,7 @@ class ProductAdd extends Component {
         />
 
         <input
-          type="text"
+          type="file"
           name="url"
           placeholder="Link for the image"
           onChange={this.handleChange}
