@@ -7,37 +7,35 @@ import axios from 'axios';
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
 import { useAuth } from "../context/auth";
 
-function Login(props){
-  console.log(props)
+function Login(props) {
+  /* console.log(props); */
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [ isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {setAuthTokens} = useAuth();
+  const { setAuthTokens } = useAuth();
   var referer = '/';
-  if (props && props.location.state) {
+  if (props && props.location.state){
     referer = props.location.state.referer || '/';
-  }
-
-  function postLogin () {
+  }  
+  function postLogin() {
     axios.post("http://localhost:5000/auth/signin", {
       'email':username,
       password
-  }).(result => {
-    if (result.status === 200 && result.data === "OK") {
-      setAuthTokens(result.data);
-      setLoggedIn(true);
-    } else {
-      setIsError(true);
+    }).then(result => {
+      if (result.status === 200 && result.data === "OK") {
+        setAuthTokens(result.data);
+        setLoggedIn(true);
+      } else {
+        setIsError(true);
+      }
     }).catch(e => {
       setIsError(true);
     });
   }
-
   if (isLoggedIn) {
-    return <Redirect to {referer} />;
+    return <Redirect to={referer} />;
   }
-
   return (
     <Card>
       <Logo src={logoImg} />
@@ -48,7 +46,7 @@ function Login(props){
           onChange={e => {
             setUsername(e.target.value);
           }}
-          placeholder="Sähköposti"
+          placeholder="email"
         />
         <Input
           type="password"
@@ -56,12 +54,12 @@ function Login(props){
           onChange={e => {
             setPassword(e.target.value);
           }}
-          placeholder="Salasana"
+          placeholder="password"
         />
-        <Button onClick={postLogin}>Kirjaudu sisään</Button>
+        <Button onClick={postLogin}>Sign In</Button>
       </Form>
-      <Link to="/signup">Eikö sinulla ole vielä tiliä? Luo tili tästä.</Link>
-        { isError &&<Error>Käyttäjätunnus tai salasana on väärä!</Error> }
+      <Link to="/signup">Don't have an account?</Link>
+        { isError &&<Error>The username or password provided were incorrect!</Error> }
     </Card>
   );
 }
