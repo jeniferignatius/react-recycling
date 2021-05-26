@@ -41,7 +41,7 @@ class ProductAdd extends Component {
         <input
           type="number"
           name="idReference"
-          placeholder="Product Code"
+          placeholder="Tuotekoodi"
           onChange={this.handleChange}
           value={this.state.idReference}
         />
@@ -49,7 +49,7 @@ class ProductAdd extends Component {
         <input
           type="text"
           name="name"
-          placeholder="Name of the product"
+          placeholder="Tuotteen nimi"
           onChange={this.handleChange}
           value={this.state.name}
         />
@@ -57,7 +57,7 @@ class ProductAdd extends Component {
         <input
           type="text"
           name="description"
-          placeholder="Description"
+          placeholder="Tuotteen kuvaus"
           onChange={this.handleChange}
           value={this.state.description}
         />
@@ -65,7 +65,7 @@ class ProductAdd extends Component {
         <input
           type="number"
           name="value"
-          placeholder="Value"
+          placeholder="Hinta"
           onChange={this.handleChange}
           value={this.state.value}
         />
@@ -73,12 +73,12 @@ class ProductAdd extends Component {
         <input
           type="text"
           name="url"
-          placeholder="Link for the image"
+          placeholder="Linkki tuotteen kuvaan"
           onChange={this.handleChange}
           value={this.state.url}
         />
 
-        <button type="submit">Add product</button>
+        <button type="submit">Lisää tuote</button>
 
         <img src={this.state.url} alt="" />
       </form>
