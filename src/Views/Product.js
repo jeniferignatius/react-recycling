@@ -11,10 +11,10 @@ export default function Product() {
     <header id='main-header'>
       <div className='header-content'>
         <Link to='/product' >
-        <Button className='button' color="primary">Product page</Button> 
+        <Button className='button' color="primary">Tuotesivu</Button> 
         </Link>
         <Link to='/product/product-add'>
-        <Button className='button' color="primary">Add Product</Button>
+        <Button className='button' color="primary">Lisää tuote</Button>
         </Link>
       </div>
     </header>
